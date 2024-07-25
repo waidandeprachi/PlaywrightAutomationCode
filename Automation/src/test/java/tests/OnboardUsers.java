@@ -24,7 +24,7 @@ public class OnboardUsers extends BaseTest {
         List<UserDetails> userDetailsList = new CSVDataStore().readCsvFile(csvPath3);
         List<UserDetails> alreadyOnboardedUsers = new ArrayList<>();
         for (UserDetails user : userDetailsList) {
-            if (userDetailsList.indexOf(user) > 666) {
+            if (userDetailsList.indexOf(user) > 0) {
                 System.out.println(user.getFull_name());
                 loginPage.login(devUrl, user.getEmail(), user.getPassword());
                 Thread.sleep(1000);

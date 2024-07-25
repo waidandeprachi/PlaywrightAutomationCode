@@ -70,7 +70,7 @@ public class EditProfileDetails extends BaseTest {
         adminPage.clickOnUsers();
 
         //Reading CSV file
-        List<UserDetails> userDetailsList = new CSVDataStore().readCsvFile(csvPath3);
+        List<UserDetails> userDetailsList = new CSVDataStore().readCsvFile(csvPath2);
         List<UserDetails> notFoundUsers = new ArrayList<>();
 
         //Search user and edit its job role
