@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="test_suite" verbose="1" parallel="tests">
+    <listeners>
+        <listener class-name="listener.ReportListener"></listener>
+    </listeners>
+    <parameter name="user" value="user1"></parameter>
+    <parameter name="password" value="abcd1"></parameter>
+    <test name="Chrome" parallel="tests">
+        <parameter name="browser" value="CHROME"></parameter>
+        <groups>
+            <run>
+                <include name="edit job"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.EditProfileDetails"/>
+        </classes>
+    </test><!-- Test -->
+    <test name="Firefox" parallel="tests">
+        <parameter name="browser" value="FIREFOX"></parameter>
+        <groups>
+            <run>
+                <include name="edit job"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.EditProfileDetails"/>
+        </classes>
+    </test><!-- Test -->
+</suite> <!-- Suite -->
