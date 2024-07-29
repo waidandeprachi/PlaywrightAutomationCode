@@ -3,6 +3,8 @@ package page;
 import base.BasePage;
 import com.microsoft.playwright.Page;
 
+import java.util.function.BooleanSupplier;
+
 public class LoginPage extends BasePage {
 
     public LoginPage(Page page){

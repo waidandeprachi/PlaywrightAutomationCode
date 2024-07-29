@@ -61,7 +61,7 @@ public class EditProfileDetails extends BaseTest {
         AdminPage adminPage = new AdminPage(page);
 
         //Login to application
-        loginPage.login(devUrl, devEmail, devPassword);
+        loginPage.login(devUrl, automationEmail, automationPassword);
 
         //Navigating inside Admin through more menu
         homePage.clickOnMoreOptions();
@@ -70,23 +70,23 @@ public class EditProfileDetails extends BaseTest {
         adminPage.clickOnUsers();
 
         //Reading CSV file
-        List<UserDetails> userDetailsList = new CSVDataStore().readCsvFile(csvPath2);
+        List<UserDetails> userDetailsList = new CSVDataStore().readCsvFile(csvPath3);
         List<UserDetails> notFoundUsers = new ArrayList<>();
 
         //Search user and edit its job role
         for (UserDetails user : userDetailsList) {
-            adminPage.searchUser(user.getFirst_name());
-            if(adminPage.isUserPresentInSearchList(user.getFull_name())){
-                Thread.sleep(2000);
-                adminPage.clickOnEditUserProfileButton(user.getFull_name());
-                assertThat(page.getByText(user.getEmail()));
-                adminPage.enterJobRole(user.getJob_title());
-                Thread.sleep(1000);
-                adminPage.clickOnSaveButton();
-            }
-            else {
-                notFoundUsers.add(user);
-                System.out.println("User not found: "+ user.getFirst_name());
+            if (userDetailsList.indexOf(user) >= 0) {
+                adminPage.searchUser(user.getFirst_name());
+                if (adminPage.isUserPresentInSearchList(user.getFull_name())) {
+                    adminPage.clickOnEditUserProfileButton(user.getFull_name());
+                    assertThat(page.getByText(user.getEmail()));
+                    adminPage.enterJobRole(user.getJob_title());
+                    adminPage.clickOnSaveButton();
+                    System.out.println(user.getFull_name()+" edited");
+                } else {
+                    notFoundUsers.add(user);
+                    System.out.println("User not found: " + user.getFirst_name());
+                }
             }
         }
     }

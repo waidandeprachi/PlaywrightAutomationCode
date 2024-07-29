@@ -4,8 +4,8 @@
     <listeners>
         <listener class-name="listener.ReportListener"></listener>
     </listeners>
-    <test name="Firefox">
-        <parameter name="browser" value="FIREFOX"></parameter>
+    <test name="Chrome">
+        <parameter name="browser" value="CHROME"></parameter>
         <groups>
             <run>
                 <include name="edit job"/>

@@ -1,6 +1,7 @@
 package page;
 
 import base.BasePage;
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
 
@@ -14,7 +15,9 @@ public class AdminPage extends BasePage {
     public void clickOnAccounts(){
         boolean isExpanded = page.locator("//span[text()=\"Accounts\"]/following-sibling::span[contains(@class,\"toggle-button open\")]").isVisible();
         if(!isExpanded){
-            page.getByText("Accounts").click();
+            page.locator("//div[contains(@class,\"sidebar-btn\")]//span[contains(@class,\"rubix-icon\")]").click();
+            Locator locator = page.getByText("Accounts");
+            locator.click();
         }
     }
     public void clickOnUsers(){
@@ -35,7 +38,6 @@ public class AdminPage extends BasePage {
 
     public void enterJobRole(String role) throws InterruptedException {
         page.waitForLoadState(LoadState.LOAD);
-        pause(1000);
         page.locator("//div[contains(text(),\"Job Title\")]/following-sibling::div/input[@type=\"text\"]").fill(role);
     }
 

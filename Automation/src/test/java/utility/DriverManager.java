@@ -20,10 +20,10 @@ public class DriverManager {
         Browser br;
         switch (BrowserName.valueOf(browser)){
             case CHROME:
-                br = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(arguments));
+                br = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(true).setArgs(arguments));
                 return br.newContext(new Browser.NewContextOptions().setViewportSize(null));
             case FIREFOX:
-                br = playwright.firefox().launch((new BrowserType.LaunchOptions().setHeadless(false).setArgs(arguments)));
+                br = playwright.firefox().launch((new BrowserType.LaunchOptions().setHeadless(true).setArgs(arguments)));
                 return br.newContext(new Browser.NewContextOptions().setViewportSize(null));
             default:
                 throw new IllegalStateException("Incorrect browser name:"+browser);

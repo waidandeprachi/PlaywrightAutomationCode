@@ -24,4 +24,8 @@ public class BasePage {
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get(path)).setFullPage(true));
         return path;
     }
+
+    public static void reloadPage(){
+        page.reload();
+    }
 }
