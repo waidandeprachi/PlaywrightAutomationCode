@@ -25,7 +25,7 @@ public class OnboardUsers extends BaseTest {
 
         List<UserDetails> userDetailsList = new CSVDataStore().readCsvFile(csvPath2);
         List<UserDetails> alreadyOnboardedUsers = new ArrayList<>();
-        int count = 581;
+        int count = 594;
 
         for (UserDetails user : userDetailsList) {
                 if (userDetailsList.indexOf(user) > count) {
