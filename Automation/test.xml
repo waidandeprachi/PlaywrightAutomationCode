@@ -8,11 +8,11 @@
         <parameter name="browser" value="CHROME"></parameter>
         <groups>
             <run>
-                <include name="edit job"/>
+                <include name="Onboard user"/>
             </run>
         </groups>
         <classes>
-            <class name="tests.EditProfileDetails"/>
+            <class name="tests.OnboardUsers"/>
         </classes>
     </test><!-- Test -->
 </suite> <!-- Suite -->
