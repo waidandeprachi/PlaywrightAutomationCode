@@ -21,6 +21,7 @@ public class HomePage extends BasePage {
     }
 
     public void logout(){
+        pause(2000);
         page.locator("//div[contains(@class,\"profile\")]").click();
         page.getByText("Sign Out").click();
     }
