@@ -75,7 +75,7 @@ public class EditProfileDetails extends BaseTest {
 
         //Search user and edit its job role
         for (UserDetails user : userDetailsList) {
-            if (userDetailsList.indexOf(user) >= 0) {
+            if (userDetailsList.indexOf(user) >= 424) {
                 adminPage.searchUser(user.getFirst_name());
                 if (adminPage.isUserPresentInSearchList(user.getFull_name())) {
                     adminPage.clickOnEditUserProfileButton(user.getFull_name());
